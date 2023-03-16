@@ -1,0 +1,22 @@
+.header-box {
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+}
+
+
+.main-box {
+    text-align: center;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+p {
+    font-size: 20px;
+}
+
+.start {
+    font-size: 20px;
+}
