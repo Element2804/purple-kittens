@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Javascript Game</title>
-<link rel="stylesheet" type="text/css" href="assets/style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" type="text/css" href="assets/style.css" />
+  </head>
+  <body>
     <header class="header-box">
-        <a href="highscore">View High Scores</a>
-        <nav>Timer:<span id="count">100</span></nav>
+      <a href="highscore">View High Scores</a>
+      <nav>Timer:<span id="count">100</span></nav>
     </header>
 
-    <main class="container">
-   
-        <section id="quiz" class="flex-center flex-column">
+    <main id="container" class="container">
+      <section id="quiz-intro" class="flex-center flex-column">
         <h1>Coding Quiz Challenge</h1>
-    <p>Click on the button to start a timed quiz with code related questions.<br> <strong>Incorrect answers will take 10 seconds away from your time</strong>, good luck!</p>
-    
-    <button class="button start">Start Quiz</button>
-</section>
+        <br />
+        <h2>
+          Click on the button to start a timed quiz with code related
+          questions.<br />
+          <strong
+            >Incorrect answers will take 10 seconds away from your time</strong
+          >, Good luck!
+        </h2>
+        <button id="start" class="button">Start Quiz</button>
+      </section>
 
-</main>
+      <section id="quiz-info"></section>
+    </main>
 
-    <script src="assets/script.js"> </script>
-</body>
+    <script src="assets/script.js"></script>
+  </body>
 </html>
