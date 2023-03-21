@@ -9,11 +9,11 @@
   </head>
   <body>
     <header class="header-box">
-      <a href="highscore">View High Scores</a>
+      <nav><a href="highscore.html">View High Scores</a></nav>
       <nav>Timer:<span id="count">100</span></nav>
     </header>
 
-    <main id="container" class="container">
+    <main id="container" class="container flex-center flex-column">
       <section id="quiz-intro" class="flex-center flex-column">
         <h1>Coding Quiz Challenge</h1>
         <br />
@@ -26,8 +26,10 @@
         </h2>
         <button id="start" class="button">Start Quiz</button>
       </section>
-
+      <! -- box for questions to go in -- >
       <section id="quiz-info"></section>
+      <! -- form for high score -- >
+      <section id="highscore"></section>
     </main>
 
     <script src="assets/script.js"></script>
