@@ -1,4 +1,3 @@
-//questions
 var queOne = "Which function is used to serialize an object into a JSON string in Javascript?"
 var queTwo = "Inside which HTML element do we put the JavaScript?"
 var queThree = " The 'function' and 'var' are known as:"
@@ -22,17 +21,11 @@ var mainBox = document.querySelector("#quiz-intro");
 var queBox = document.querySelector("#quiz-info");
 var queNumber = 1;
 var countDown = document.querySelector("#count");
-
-
 var count = 100;
 var score = 0;
 var makeNav = document.createElement("nav");
-//var textStuff = document.createTextNode();
 
-
-
-
-
+//hides instructions and starts game
 function startGame() {
 
     mainBox.setAttribute("class", "hidden");
@@ -47,17 +40,17 @@ runGame();
 }
 
 
-
+//starts and stops timer
 function startTime () {
 
     timer = setInterval(function() {
         count--;
         countDown.textContent = count
-        //check if count is 0 or done here
+     
         if (count >= 0) {
             if (count === 0) {
                 clearInterval(timer);
-            } if (queNumber > 5){
+            } if (queNumber >= 5){
                 clearInterval(timer);
             }
         }
@@ -67,7 +60,7 @@ function startTime () {
     }, 1000);
 
 }
-
+//asigns the answers to the questions
 function runGame(){
     
     if (queNumber === 1){
@@ -97,7 +90,7 @@ function runGame(){
     }
 
 }
-
+//for loop to make buttons
 function createButtons(arr, corAnswer) {
     var makeUl = document.createElement("ul");
     makeUl.setAttribute("id", "quechoices")
@@ -115,7 +108,7 @@ function createButtons(arr, corAnswer) {
       isCorrect(corAnswer);
    
 }
-
+//removes last question
 function nextQuestion() {
     document.getElementById("quechoices").remove();
     queNumber++;
@@ -123,6 +116,7 @@ function nextQuestion() {
     }
 
 
+//verifies the answers and decrements 10 on incorrect
 function isCorrect (answer){
     var queChoices = document.getElementById("quechoices");
     queChoices.addEventListener("click", function(event){
@@ -130,9 +124,40 @@ function isCorrect (answer){
         if(!event.target.classList.contains(answer)){
             count -= 10;
         }
+        if (queNumber > 4){
+            queBox.setAttribute("class", "hidden");
+            allDone();
+        } if (event.target.classList.contains(answer)){
+            score ++;
+        }
         nextQuestion();
     })
 
+}
+//shows score
+function allDone() {
+    var putScore = document.getElementById("highscore");
+    var makeForm = document.createElement("input");
+    var showScore = document.createElement("h1");
+    var plsEnter = document.createElement("h2")
+    score = count
+    putScore.appendChild(showScore);
+    putScore.appendChild(plsEnter);
+    showScore.textContent = "Your score is " + count + "!";
+    plsEnter.textContent = "Please enter your initials";
+    
+    putScore.appendChild(makeForm);
+    makeForm.setAttribute(("id", "initials"));
+    
+  submitScore();
+}
+//enters score into local storage
+function submitScore() {
+var entInitials = document.querySelector("#initials").value;
+
+
+localStorage.setItem("initials", JSON.stringify(entInitials));
+localStorage.setItem("score", JSON.stringify(score));
 }
 
 
