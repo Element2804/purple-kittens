@@ -134,30 +134,44 @@ function isCorrect (answer){
     })
 
 }
+
+
+
 //shows score
 function allDone() {
     var putScore = document.getElementById("highscore");
     var makeForm = document.createElement("input");
     var showScore = document.createElement("h1");
-    var plsEnter = document.createElement("h2")
+    var plsEnter = document.createElement("h2");
+    var subButton = document.createElement("button");
     score = count
     putScore.appendChild(showScore);
     putScore.appendChild(plsEnter);
-    showScore.textContent = "Your score is " + count + "!";
-    plsEnter.textContent = "Please enter your initials";
-    
     putScore.appendChild(makeForm);
-    makeForm.setAttribute(("id", "initials"));
+    putScore.appendChild(subButton);
+   
+
+    subButton.textContent = "Submit your initials"
+    showScore.textContent = "Your score is " + count + "!";
+    plsEnter.textContent = "Please enter your initials";    
+    makeForm.setAttribute(("class", "initials"));
+
+
     
-  submitScore();
+    subButton.addEventListener("click", callHighscore);
+  
+   
 }
+
+
 //enters score into local storage
 function submitScore() {
-var entInitials = document.querySelector("#initials").value;
 
 
-localStorage.setItem("initials", JSON.stringify(entInitials));
+
 localStorage.setItem("score", JSON.stringify(score));
+
+
 }
 
 
