@@ -24,6 +24,7 @@ var countDown = document.querySelector("#count");
 var count = 100;
 var score = 0;
 var makeNav = document.createElement("nav");
+var urlHigh = "highscore.html";
 
 //hides instructions and starts game
 function startGame() {
@@ -156,9 +157,10 @@ function allDone() {
     plsEnter.textContent = "Please enter your initials";    
     makeForm.setAttribute(("class", "initials"));
 
-
     
-    subButton.addEventListener("click", callHighscore);
+    var repLink = document.location.replace(urlHigh);
+    
+    subButton.addEventListener("click", startGame);
   
    
 }
