@@ -169,8 +169,6 @@ function submitScore() {
 
 
 
-
-
 localStorage.setItem("score", JSON.stringify(score));
 
 
