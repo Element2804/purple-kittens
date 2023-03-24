@@ -80,3 +80,7 @@ textarea {
  
   background: none;
 }
+
+#submit {
+    color:cyan;
+}

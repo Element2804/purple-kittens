@@ -24,7 +24,7 @@ var countDown = document.querySelector("#count");
 var count = 100;
 var score = 0;
 var makeNav = document.createElement("nav");
-var urlHigh = "highscore.html";
+var urlHigh = "assets/highscore.html";
 
 //hides instructions and starts game
 function startGame() {
@@ -59,7 +59,7 @@ function startTime () {
     
     
     }, 1000);
-
+    return;
 }
 //asigns the answers to the questions
 function runGame(){
@@ -107,7 +107,7 @@ function createButtons(arr, corAnswer) {
       }
 
       isCorrect(corAnswer);
-   
+      return;
 }
 //removes last question
 function nextQuestion() {
@@ -133,7 +133,7 @@ function isCorrect (answer){
         }
         nextQuestion();
     })
-
+    return;
 }
 
 
@@ -145,6 +145,9 @@ function allDone() {
     var showScore = document.createElement("h1");
     var plsEnter = document.createElement("h2");
     var subButton = document.createElement("button");
+    subButton.setAttribute("id", "submit");
+ 
+
     score = count
     putScore.appendChild(showScore);
     putScore.appendChild(plsEnter);
@@ -155,26 +158,31 @@ function allDone() {
     subButton.textContent = "Submit your initials"
     showScore.textContent = "Your score is " + count + "!";
     plsEnter.textContent = "Please enter your initials";    
-    makeForm.setAttribute(("class", "initials"));
+    makeForm.setAttribute("class", "initials");
 
     
-    var repLink = document.location.replace(urlHigh);
     
-    subButton.addEventListener("click", startGame);
-  
+    subButton.addEventListener("click", submitScore);
+
+  return;
    
 }
 
+function goHighscore() {
+    document.location.replace(urlHigh);
+}
 
 //enters score into local storage
 function submitScore() {
+    var initialVal = document.querySelector(".initials").value;
 
-
-
+localStorage.setItem("initials", JSON.stringify(initialVal))
 localStorage.setItem("score", JSON.stringify(score));
 
-
+goHighscore();
 }
 
 
 startButton.addEventListener("click", startGame);
+
+
