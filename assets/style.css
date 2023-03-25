@@ -62,11 +62,15 @@ nav {
 
 #quiz-info { 
   
-   background-color: blueviolet;
+   background-color: rgb(43, 226, 171);
 }
 
 ul {
     list-style-type: none;
+}
+
+li {
+    font-size: 30px;
 }
 
 input,

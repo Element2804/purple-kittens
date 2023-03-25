@@ -24,7 +24,7 @@ var countDown = document.querySelector("#count");
 var count = 100;
 var score = 0;
 var makeNav = document.createElement("nav");
-var urlHigh = "assets/highscore.html";
+var urlHigh = "highscore.html";
 
 //hides instructions and starts game
 function startGame() {
